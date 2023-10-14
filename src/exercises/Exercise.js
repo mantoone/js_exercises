@@ -39,6 +39,12 @@ const Exercise = (props) => {
     checkErrors(() => eval(value))
   }, [value]);
 
+  const onSubmit = React.useCallback(() => {
+    checkErrors(() => {
+      props.submitTests(value);
+    });
+  }, [value]);
+
   return (
     <div>
       <h1>{props.name}</h1>
@@ -50,7 +56,7 @@ const Exercise = (props) => {
       {errors ? <pre>{errors}</pre> : null}
       <div style={{marginTop: '10px'}}>
         <button style={{marginRight: '10px'}} onClick={onRun}>Run</button>
-        <button className='submit' onClick={onRun}>Submit</button>
+        <button className='submit' onClick={onSubmit}>Submit</button>
       </div>
     </div>
   );
