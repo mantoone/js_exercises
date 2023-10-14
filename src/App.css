@@ -39,3 +39,7 @@ button {
   border-radius: 5px;
   cursor: pointer;
 }
+
+button.submit {
+  background-color: rgb(20, 209, 146);
+}

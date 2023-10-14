@@ -1,19 +1,19 @@
 import React from 'react';
 import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
-import Transpose from './exercises/arrays/Transpose';
-import './App.css';
 
-function App() {
-  const [value, setValue] = React.useState("console.log('hello world!');");
+
+// React function for an exercise component
+const Exercise = (props) => {
+  const [value, setValue] = React.useState(props.starterCode);
   const [errors, setErrors] = React.useState("");
   const onChange = React.useCallback((val, viewUpdate) => {
     setValue(val);
   }, []);
 
-  const onClick = React.useCallback(() => {
+  const checkErrors = (fun) => {
     try {
-      eval(value);
+      fun();
       setErrors("");
     } catch (err) {
       console.log('err:', err);
@@ -33,26 +33,27 @@ function App() {
       } 
       setErrors(err.toString() + errorString);
     }
+  }
+
+  const onRun = React.useCallback(() => {
+    checkErrors(() => eval(value))
   }, [value]);
 
   return (
-    <div className="App">
-      <header>
-        <nav>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-          </ul>
-        </nav>
-      </header>
-      <CodeMirror value={value} height="200px" extensions={[javascript({ jsx: true })]} onChange={onChange} />
+    <div>
+      <h1>{props.name}</h1>
+      <p>{props.description}</p>
+      <div>{props.instructions}</div>
+      <div style={{marginBottom: '20px'}}>{props.examples}</div>
+      <p><b>Exercise</b></p>
+      <CodeMirror value={value} extensions={[javascript({ jsx: true })]} onChange={onChange} />
       {errors ? <pre>{errors}</pre> : null}
-      <button style={{marginTop: '10px'}} onClick={onClick}>Run</button>
-
-      <Transpose/>
+      <div style={{marginTop: '10px'}}>
+        <button style={{marginRight: '10px'}} onClick={onRun}>Run</button>
+        <button className='submit' onClick={onRun}>Submit</button>
+      </div>
     </div>
   );
 }
 
-export default App;
+export default Exercise;
