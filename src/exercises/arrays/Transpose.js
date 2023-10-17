@@ -30,20 +30,27 @@ console.log(transpose(matrix));`} />
         </div>
     }
     starterCode={
+        `function transpose(matrix){
+  // TODO: implement
+}`
+    }
+    beforeExercise={
         `let matrix = [
   [1, 2, 3],
   [4, 5, 6],
   [7, 8, 9]
 ];
 
-function transpose(matrix){
-    // TODO: implement
-}
-
-console.log(transpose(matrix));`
+`
     }
-    submitTests={(exerciseVars) => {
-        const transpose = exerciseVars.transpose;
+    afterExercise={
+        `
+
+console.log(transpose(matrix));
+        `
+    }
+    submitTests={(code) => {
+        eval(code);
 
         let matrix = [
             [1, 2, 3],
@@ -57,7 +64,11 @@ console.log(transpose(matrix));`
             [3, 6, 9]
         ];
 
-        if (transpose(matrix) != transposed) return false;
+        // If test fails, return a string describing the error
+        debugger;
+        // eslint-disable-next-line
+        let res = transpose(matrix);
+        if (res != transposed) return `transpose(${JSON.stringify(matrix)}) should return ${JSON.stringify(transposed)}, but returned ${JSON.stringify(res)}`
 
         matrix = [
             [1, 2],
@@ -69,13 +80,12 @@ console.log(transpose(matrix));`
             [2, 4]
         ];
 
-        if (transpose(matrix) != transposed) return false;
+        // eslint-disable-next-line
+        if (transpose(matrix) != transposed) return `transpose(${JSON.stringify(matrix)}) should return ${JSON.stringify(transposed)}`
 
         return true;
 
-    }
-
-    }
+    }}
 />
 
 export default Transpose;
