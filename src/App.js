@@ -46,10 +46,6 @@ function App() {
           </ul>
         </nav>
       </header>
-      <CodeMirror value={value} height="200px" extensions={[javascript({ jsx: true })]} onChange={onChange} />
-      {errors ? <pre>{errors}</pre> : null}
-      <button style={{marginTop: '10px'}} onClick={onClick}>Run</button>
-
       <Transpose/>
     </div>
   );

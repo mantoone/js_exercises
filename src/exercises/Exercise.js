@@ -3,6 +3,7 @@ import CodeMirror, { EditorView } from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
 import { gutter, lineNumbers } from '@codemirror/view';
 import JSView from './JSView';
+import OutputDiff from './OutputDiff';
 
 
 
@@ -11,6 +12,7 @@ const Exercise = (props) => {
   const [value, setValue] = React.useState(props.starterCode);
   const [output, setOutput] = React.useState("");
   const [errors, setErrors] = React.useState("");
+  const [submitResult, setSubmitResult] = React.useState();
   const refs = React.useRef({});
 
   const beforeLines = React.useMemo(() => props.beforeExercise.split('\n').length, [props.beforeExercise]);
@@ -54,7 +56,7 @@ const Exercise = (props) => {
 
   const onRun = React.useCallback(() => {
     checkErrors(() => {
-      let code = props.beforeExercise + value + props.afterExercise;
+      let code = props.beforeExercise + '\n' + value + '\n' + props.afterExercise;
       let out = "";
       const addOutput = (text) => out += JSON.stringify(text) + '\n';
       code = code.replace(/console.log/g, 'addOutput');
@@ -67,7 +69,10 @@ const Exercise = (props) => {
 
   const onSubmit = React.useCallback(() => {
     checkErrors(() => {
-      console.log('submit result', props.submitTests(value));
+      setSubmitResult({});
+      const res = props.submitTests(value);
+      console.log('submit result', res);
+      setSubmitResult(res);
     });
   }, [value]);
 
@@ -77,7 +82,7 @@ const Exercise = (props) => {
       <p>{props.description}</p>
       <div>{props.instructions}</div>
       <div style={{marginBottom: '20px'}}>{props.examples}</div>
-      <p><b>Exercise</b></p>
+      <h3><b>Exercise</b></h3>
       <JSView value={props.beforeExercise} />
       <CodeMirror
       ref={refs}
@@ -97,12 +102,30 @@ const Exercise = (props) => {
       onChange={onChange}
       />
       <JSView value={props.afterExercise} startNumber={codeLines + beforeLines} />
-      {output ? <pre>{output}</pre> : null}
-      {errors ? <pre>{errors}</pre> : null}
       <div style={{marginTop: '10px'}}>
         <button style={{marginRight: '10px'}} onClick={onRun}>Run</button>
         <button className='submit' onClick={onSubmit}>Submit</button>
       </div>
+
+      <p>Output</p>
+      {output ? <pre>{output}</pre> : null}
+      {errors ? <pre>{errors}</pre> : null}
+
+      <h4>Submit results</h4>
+      {submitResult ?
+        <div>
+          {
+            submitResult.success ? <p>Well done!</p> :
+              <div>
+                <p>Your function gives incorrect output for <pre>{JSON.stringify(submitResult.input)}</pre> Your function output is on the left, correct output on the right</p>
+                <OutputDiff
+                  output={JSON.stringify(submitResult.output, null, 2)}
+                  correct={JSON.stringify(submitResult.correct, null, 2)}
+                />
+              </div>
+          }
+        </div>
+        : 'Please submit your code'}
     </div>
   );
 }
