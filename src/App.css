@@ -63,3 +63,36 @@ pre.codeOutput {
 .indent {
   margin-left: 20px;
 }
+
+ul.indent {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+ul.indent li {
+  margin: 0;
+  padding: 0;
+}
+
+ul.indent li ul.indent {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+ul.indent li ul.indent li {
+  margin-left: 1rem;
+}
+
+ul.indent a {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+ul.indent li ul.indent li a:hover {
+  text-decoration: underline;
+}
+
+.outline ul {
+  margin-left: 30px;
+}

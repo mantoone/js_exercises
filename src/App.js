@@ -57,29 +57,32 @@ function App() {
           </ul>
         </nav>
       </header>
-      <ul class="indent">
-        <li>
-          Arrays
-          <ul class="indent">
-            <li><a href="#find-maximum">Find Max</a></li>
-            <li><a href="#square-numbers">Square Numbers</a></li>
-            <li><a href="#filter-even-numbers">Even Numbers</a></li>
-            <li><a href="#sum-rows">Sum Rows</a></li>
-            <li><a href="#matrix-transpose">Transpose</a></li>
-          </ul>
-        </li>
-        <li>
-          Objects
-          <ul class="indent">
-            <li><a href="#create-person">Create Person</a></li>
-            <li><a href="#create-person-with-greet-method">Create Person with Greet</a></li>
-            <li><a href="#get-person-property">Get Person Property</a></li>
-            <li><a href="#get-nested-person-property">Get Nested Person Property</a></li>
-            <li><a href="#get-person-names">Get Person Names</a></li>
-            <li><a href="#iterate-person-properties">Iterate Person Properties</a></li>
-          </ul>
-        </li>
-      </ul>
+      <div class="outline">
+        <h4>Outline</h4>
+        <ul class="indent">
+          <li>
+            <a href="#array-exercises">Arrays</a>
+            <ul class="indent">
+              <li><a href="#find-maximum">Find Max</a></li>
+              <li><a href="#square-numbers">Square Numbers</a></li>
+              <li><a href="#filter-even-numbers">Even Numbers</a></li>
+              <li><a href="#sum-rows">Sum Rows</a></li>
+              <li><a href="#matrix-transpose">Transpose</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#object-exercises">Objects</a>
+            <ul class="indent">
+              <li><a href="#create-person">Create Person</a></li>
+              <li><a href="#create-person-with-greet-method">Create Person with Greet</a></li>
+              <li><a href="#get-person-property">Get Person Property</a></li>
+              <li><a href="#get-nested-person-property">Get Nested Person Property</a></li>
+              <li><a href="#get-person-names">Get Person Names</a></li>
+              <li><a href="#iterate-person-properties">Iterate Person Properties</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
 
       <h2 id="array-exercises">Array exercises</h2>
       <FindMax />
