@@ -41,7 +41,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Javascript exercises</h1>
+      <h1 className="pageTitle">Javascript exercises</h1>
       {/* <header>
         <nav>
           <ul>

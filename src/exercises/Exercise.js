@@ -77,7 +77,7 @@ const Exercise = (props) => {
   }, [value]);
 
   return (
-    <div>
+    <div className="exercise">
       <h1>{props.name}</h1>
       <p>{props.description}</p>
       <div>{props.instructions}</div>
@@ -103,7 +103,7 @@ const Exercise = (props) => {
 
       <p><b>Output</b></p>
       {output ? <div style={{ width: '100%' }}>
-        <pre style={{ minHeight: '80px', backgroundColor: 'lightgray', borderRadius: '5px', padding: '10px' }}>{output}</pre>
+        <pre className='codeOutput'>{output}</pre>
       </div> : null}
       {errors ? <pre>{errors}</pre> : null}
 

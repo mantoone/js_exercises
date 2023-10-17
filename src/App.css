@@ -43,3 +43,19 @@ button {
 button.submit {
   background-color: rgb(20, 209, 146);
 }
+
+h1.pageTitle {
+  margin-top: 0px;
+}
+
+
+pre.codeOutput {
+  min-height: 80px;
+  background-color: lightgray;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.exercise {
+  margin-bottom: 80px;
+}
