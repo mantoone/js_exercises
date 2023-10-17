@@ -76,8 +76,10 @@ const Exercise = (props) => {
     });
   }, [value]);
 
+  const id = React.useMemo(() => props.name.replace(/\s/g, '-').toLowerCase(), [props.name]);
+
   return (
-    <div className="exercise">
+    <div className="exercise" id={id}>
       <h1>{props.name}</h1>
       <p>{props.description}</p>
       <div>{props.instructions}</div>
