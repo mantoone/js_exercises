@@ -101,15 +101,17 @@ const Exercise = (props) => {
         <button className='submit' onClick={onSubmit}>Submit</button>
       </div>
 
-      <p>Output</p>
-      {output ? <pre>{output}</pre> : null}
+      <p><b>Output</b></p>
+      {output ? <div style={{ width: '100%' }}>
+        <pre style={{ minHeight: '80px', backgroundColor: 'lightgray', borderRadius: '5px', padding: '10px' }}>{output}</pre>
+      </div> : null}
       {errors ? <pre>{errors}</pre> : null}
 
       <h4>Submit results</h4>
       {submitResult ?
         <div>
           {
-            submitResult.success ? <p>Well done!</p> :
+            submitResult.success ? <p>🎉All correct!🎉 Well done!</p> :
               <div>
                 <p>Your function gives incorrect output for </p>
                 <pre>{JSON.stringify(submitResult.input)}</pre>

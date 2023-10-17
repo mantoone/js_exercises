@@ -3,6 +3,10 @@ import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
 import Transpose from './exercises/arrays/Transpose';
 import './App.css';
+import SumRows from './exercises/arrays/SumRows';
+import FindMax from './exercises/arrays/FindMax';
+import EvenNumbers from './exercises/arrays/EvenNumbers';
+import SquareNumbers from './exercises/arrays/SquareNumbers';
 
 function App() {
   const [value, setValue] = React.useState("console.log('hello world!');");
@@ -37,15 +41,20 @@ function App() {
 
   return (
     <div className="App">
-      <header>
+      <h1>Javascript exercises</h1>
+      {/* <header>
         <nav>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="#">JS</a></li>
+            <li><a href="#">Arrays</a></li>
+            <li><a href="#">Objects</a></li>
           </ul>
         </nav>
-      </header>
+      </header> */}
+      <FindMax/>
+      <SquareNumbers/>
+      <EvenNumbers/>
+      <SumRows/>
       <Transpose/>
     </div>
   );

@@ -65,7 +65,6 @@ console.log(transpose(matrix));
             [3, 6, 9]
         ];
 
-        // eslint-disable-next-line
         let res = transpose(matrix);
         if (JSON.stringify(res) != JSON.stringify(transposed)) return {
             input: matrix,
@@ -83,7 +82,6 @@ console.log(transpose(matrix));
             [2, 4]
         ];
 
-        // eslint-disable-next-line
         res = transpose(matrix);
         if (JSON.stringify(res) != JSON.stringify(transposed)) return {
             input: matrix,
