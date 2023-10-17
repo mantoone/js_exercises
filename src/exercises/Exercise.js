@@ -89,12 +89,6 @@ const Exercise = (props) => {
       value={value}
       extensions={[
         javascript({ jsx: true }),
-        gutter({
-          lineMarker(view, line) {
-            return line.from == line.to ? <p></p> : null
-          },
-          initialSpacer: () => <p></p>
-        }),
         lineNumbers({
           formatNumber: n => (n+beforeLines)
         })
@@ -117,7 +111,9 @@ const Exercise = (props) => {
           {
             submitResult.success ? <p>Well done!</p> :
               <div>
-                <p>Your function gives incorrect output for <pre>{JSON.stringify(submitResult.input)}</pre> Your function output is on the left, correct output on the right</p>
+                <p>Your function gives incorrect output for </p>
+                <pre>{JSON.stringify(submitResult.input)}</pre>
+                <p>Your function output is on the left, correct output on the right</p>
                 <OutputDiff
                   output={JSON.stringify(submitResult.output, null, 2)}
                   correct={JSON.stringify(submitResult.correct, null, 2)}

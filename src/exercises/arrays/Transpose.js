@@ -48,12 +48,10 @@ console.log(transpose(matrix));
         `
     }
     submitTests={(code) => {
-        const transpose = eval(`(${code})`);
-
-        function arraysAreEqual(a, b) {
-            return a.length === b.length && a.every((value, index) => value === b[index]);
-        }
-
+        const transpose = eval(`(function() {
+            ${code}
+            return transpose;
+        })()`);
 
         let matrix = [
             [1, 2, 3],
