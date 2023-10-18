@@ -85,19 +85,27 @@ const Exercise = (props) => {
       <div>{props.instructions}</div>
       <div style={{marginBottom: '20px'}}>{props.examples}</div>
       <h3><b>Exercise</b></h3>
-      <JSView value={props.beforeExercise} />
-      <CodeMirror
-      ref={refs}
-      value={value}
-      extensions={[
-        javascript({ jsx: true }),
-        lineNumbers({
-          formatNumber: n => (n+beforeLines)
-        })
-      ]}
-      onChange={onChange}
-      />
-      <JSView value={props.afterExercise} startNumber={codeLines + beforeLines} />
+      <div className="editor">
+        <div className="before">
+          <JSView value={props.beforeExercise} />
+        </div>
+        <div className="code">
+          <CodeMirror
+            ref={refs}
+            value={value}
+            extensions={[
+              javascript({ jsx: true }),
+              lineNumbers({
+                formatNumber: n => (n + beforeLines)
+              })
+            ]}
+            onChange={onChange}
+          />
+        </div>
+        <div className="after">
+          <JSView value={props.afterExercise} startNumber={codeLines + beforeLines} />
+        </div>
+      </div>
       <div style={{marginTop: '10px'}}>
         <button style={{marginRight: '10px'}} onClick={onRun}>Run</button>
         <button className='submit' onClick={onSubmit}>Submit</button>

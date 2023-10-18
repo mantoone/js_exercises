@@ -3,7 +3,7 @@ import CodeMirror from '@uiw/react-codemirror';
 import { lineNumbers } from '@codemirror/view';
 import { javascript } from '@codemirror/lang-javascript';
 
-const JSView = (props) => <CodeMirror
+const JSView = (props) => <div className="jsview"><CodeMirror
     value={props.value}
     extensions={[
         javascript({ jsx: true }),
@@ -15,6 +15,6 @@ const JSView = (props) => <CodeMirror
     basicSetup={{
         highlightActiveLine: false
     }}
-    />
+    /></div>
 
 export default JSView;

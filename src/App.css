@@ -96,3 +96,28 @@ ul.indent li ul.indent li a:hover {
 .outline ul {
   margin-left: 30px;
 }
+
+.jsview {
+  border: 1px solid #ddd;
+}
+
+.editor .jsview {
+  border: 0;
+}
+
+.editor > .code {
+  border-top: 0;
+  border-bottom: 0;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+}
+
+.editor > .after {
+  border: 1px solid #ddd;
+  border-top: 0;
+}
+
+.editor > .before {
+  border: 1px solid #ddd;
+  border-bottom: 0;
+}
