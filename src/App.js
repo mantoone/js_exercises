@@ -13,6 +13,7 @@ import GetPersonProperty from './exercises/objects/GetPersonProperty';
 import GetNestedPersonProperty from './exercises/objects/GetNestedPersonProperty';
 import GetPersonNames from './exercises/objects/GetPersonNames';
 import IteratePersonProperties from './exercises/objects/IteratePersonProperties';
+import RemoveItemFromArrayInObject from './exercises/arrays/RemoveItemFromArrayInObject';
 
 function App() {
   const [value, setValue] = React.useState("console.log('hello world!');");
@@ -90,6 +91,7 @@ function App() {
       <EvenNumbers />
       <SumRows />
       <Transpose />
+      <RemoveItemFromArrayInObject />
 
       <h2 id='object-exercises'>Object exercises</h2>
       <CreatePerson />
