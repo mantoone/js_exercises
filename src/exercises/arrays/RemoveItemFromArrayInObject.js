@@ -70,11 +70,20 @@ console.log(removeItems(chores, 'cleaning', 'vacuuming'));
             others: ["other chores", "home organization", "home cleaning", "home renovation", "home repair", "home remodeling", "home painting", "home wallpapering", "home decorating", "home furnishing", "assembly of home items", "disassembly of home items", "packing of home items", "moving of home items", "cleaning of home items", "organization of home items", "carrying of home items", "lifting of home items"],
         };
 
+        const correctChores = {
+            cleaning: ["dusting", "floor washing", "taking out trash", "bathroom cleaning", "window washing", "ironing", "cleaning cat litter box"],
+            cooking: ["cooking", "baking", "grocery shopping", "meal planning"],
+            childcare: ["childcare", "driving children", "feeding children", "playing with children", "outdoor activities with children"],
+            petcare: ["pet care", "feeding pets", "walking pets", "training pets", "washing pets"],
+            yardwork: ["raking the yard", "watering the yard", "mowing the yard", "fertilizing the yard", "cleaning the yard", "snow work in the yard", "sanding the yard", "renovating the yard"],
+            others: ["other chores", "home organization", "home cleaning", "home renovation", "home repair", "home remodeling", "home painting", "home wallpapering", "home decorating", "home furnishing", "assembly of home items", "disassembly of home items", "packing of home items", "moving of home items", "cleaning of home items", "organization of home items", "carrying of home items", "lifting of home items"],
+        };
+
         let updatedChores = removeItems(chores, 'cleaning', 'vacuuming');
         if (updatedChores.cleaning.includes('vacuuming')) return {
             input: chores,
             output: updatedChores,
-            correct: 'The item "vacuuming" should be removed from the "cleaning" array.'
+            correct: correctChores,
         }
 
         return {success: true};
