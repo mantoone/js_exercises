@@ -69,6 +69,7 @@ function App() {
               <li><a href="#filter-even-numbers">Even Numbers</a></li>
               <li><a href="#sum-rows">Sum Rows</a></li>
               <li><a href="#matrix-transpose">Transpose</a></li>
+              <li><a href="#remove-items-from-array-in-object"></a>Remove items from array in object</li>
             </ul>
           </li>
           <li>
